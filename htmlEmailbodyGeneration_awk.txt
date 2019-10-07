@@ -1,7 +1,7 @@
 awk '
         BEGIN {
-		        print "From: <gpcm@grameenphone.com>"
-                print "To: <sana.islam@grameenphone.com>"
+		        print "From: <gpcm@xxxxxxxx.com>"
+                print "To: <sana.islam@xxxxxxxx.com>"
                 print "MIME-Version: 1.0"
                 print "Content-Type: text/html"
                 print "Subject: ECM Submit & Delivery Status"
