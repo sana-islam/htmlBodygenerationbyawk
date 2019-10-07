@@ -1,0 +1,27 @@
+awk '
+        BEGIN {
+		        print "From: <gpcm@grameenphone.com>"
+                print "To: <sana.islam@grameenphone.com>"
+                print "MIME-Version: 1.0"
+                print "Content-Type: text/html"
+                print "Subject: ECM Submit & Delivery Status"
+				print "ECM Submit & Delivery Status: \n"
+                print "<html><body>"
+                print "<table border=1 cellspacing=2 cellpadding=2>"
+        }
+        !/^#/ && /^S/ {
+                print "<tr>"
+                for ( i = 1; i <= NF; i++ )
+                        print "<td><b>" $i "<b></td>"
+                print "</tr>"
+        }
+        !/^#/ && !/^S/ {
+                print "<tr>"
+                for ( i = 1; i <= NF; i++ )
+                        print "<td>" $i "</td>"
+                print "</tr>"
+        }
+        END {
+                print "</table></body></html>"
+        }
+'  /database/scripts/pendingRecord.txt > /database/scripts/pendingRecord.html
